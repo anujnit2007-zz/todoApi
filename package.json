@@ -1,0 +1,31 @@
+{
+  "name": "todolistapi",
+  "version": "1.0.0",
+  "description": "Restful todolistapi",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "istanbul cover  --include-all-sources node_modules/jasmine/bin/jasmine.js"
+  },
+  "author": "anuj kumar",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.4.2",
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "eslint-html-reporter": "^0.5.2",
+    "express": "^4.15.3",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^4.0.0",
+    "gulp-istanbul": "^1.1.2",
+    "gulp-mocha": "^4.3.1",
+    "istanbul": "^0.4.5",
+    "jasmine": "^2.6.0",
+    "mongoose": "^4.11.1",
+    "tape-istanbul": "^1.1.1"
+  }
+}
