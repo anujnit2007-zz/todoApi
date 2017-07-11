@@ -1,24 +1,17 @@
 var gulp = require("gulp");
-var istanbul = require('gulp-istanbul');
- var fs = require('fs');
- var walkSync = function(dir, filelist) {
-      files = fs.readdirSync(dir);
-  filelist = filelist || [];
-  files.forEach(function(file) {
-    if (fs.statSync(dir + file).isDirectory()) {
-      filelist = walkSync(dir + file + '/', filelist);
-    }
-    else {
-		console.log(dir + file );
-      filelist.push(dir + file );
-    }
-  });
-  return filelist;
-};    
+var eslint   = require('gulp-eslint');
+var reporter = require('eslint-html-reporter');
+var path     = require('path');
+var fs       = require('fs');
+ 
 
-gulp.task('test', function() {
-walkSync("./api/");
+  
+  gulp.task('test', function() {
+return gulp.src(['./api/**/*.js'])
+  .pipe(eslint())
+  .pipe(eslint.format(reporter, function(results) {
+      fs.writeFileSync(path.join(__dirname, 'report-results.html'), results);
+    })
+  );
 });
-
-gulp.task( 'default', [ 'test' ] );
-
+  gulp.task( 'default', [ 'test' ] );
